@@ -14,6 +14,7 @@
 		214D34321C416E5900F7FE2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214D34301C416E5900F7FE2C /* LaunchScreen.storyboard */; };
 		214D343D1C416E5900F7FE2C /* Web_Service_ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D343C1C416E5900F7FE2C /* Web_Service_ExampleTests.swift */; };
 		214D34481C416E5900F7FE2C /* Web_Service_ExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214D34471C416E5900F7FE2C /* Web_Service_ExampleUITests.swift */; };
+		214D34561C4172C500F7FE2C /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 214D34551C4172C500F7FE2C /* AFNetworking */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		214D34431C416E5900F7FE2C /* Web Service ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Web Service ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		214D34471C416E5900F7FE2C /* Web_Service_ExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web_Service_ExampleUITests.swift; sourceTree = "<group>"; };
 		214D34491C416E5900F7FE2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		214D34551C4172C500F7FE2C /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
+		214D34581C41743B00F7FE2C /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 		214D341B1C416E5900F7FE2C = {
 			isa = PBXGroup;
 			children = (
+				214D34581C41743B00F7FE2C /* bridge.h */,
 				214D34261C416E5900F7FE2C /* Web Service Example */,
 				214D343B1C416E5900F7FE2C /* Web Service ExampleTests */,
 				214D34461C416E5900F7FE2C /* Web Service ExampleUITests */,
@@ -99,6 +103,7 @@
 			children = (
 				214D34271C416E5900F7FE2C /* AppDelegate.swift */,
 				214D34291C416E5900F7FE2C /* ViewController.swift */,
+				214D34551C4172C500F7FE2C /* AFNetworking */,
 				214D342B1C416E5900F7FE2C /* Main.storyboard */,
 				214D342E1C416E5900F7FE2C /* Assets.xcassets */,
 				214D34301C416E5900F7FE2C /* LaunchScreen.storyboard */,
@@ -231,6 +236,7 @@
 				214D34321C416E5900F7FE2C /* LaunchScreen.storyboard in Resources */,
 				214D342F1C416E5900F7FE2C /* Assets.xcassets in Resources */,
 				214D342D1C416E5900F7FE2C /* Main.storyboard in Resources */,
+				214D34561C4172C500F7FE2C /* AFNetworking in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,10 +404,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Web Service Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thinkful.Web-Service-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Debug;
 		};
@@ -409,10 +417,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "Web Service Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.thinkful.Web-Service-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 			};
 			name = Release;
 		};
