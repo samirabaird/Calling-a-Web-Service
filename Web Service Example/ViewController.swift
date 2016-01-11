@@ -21,6 +21,17 @@ class ViewController: UIViewController {
             success: { (operation: NSURLSessionDataTask,responseObject: AnyObject?) in
                 if let responseObject = responseObject {
                     print("Response: " + responseObject.description)
+                    if let listOfDays = responseObject["list"] as? NSArray {
+                        if let tomorrow = listOfDays[0] as? NSDictionary {
+                            if let tomorrowsWeather = tomorrow["weather"] as? NSArray {
+                                if let firstWeatherOfDay = tomorrowsWeather[0] as? NSDictionary {
+                                    if let forecast = firstWeatherOfDay["description"] as? String {
+                                        self.forecastLabel.text = forecast
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             failure: { (operation: NSURLSessionDataTask?,error: NSError) in
