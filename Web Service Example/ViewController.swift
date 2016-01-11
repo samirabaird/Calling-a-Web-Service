@@ -14,6 +14,20 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.forecastLabel.text = ""
+        
+        //instantiate a gray Activity Indicator View
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        //add the activity to the ViewController's view
+        view.addSubview(activityIndicatorView)
+        //position the Activity Indicator View in the center of the view
+        activityIndicatorView.center = view.center
+        //tell the Activity Indicator View to begin animating
+        activityIndicatorView.startAnimating()
+        
+        //activityIndicatorView.removeFromSuperview()
+
+
         let manager = AFHTTPSessionManager()
         manager.GET("http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=metric&cnt=1&appid=2de143494c0b295cca9337e1e96b00e0",
             parameters: nil,
@@ -28,6 +42,7 @@ class ViewController: UIViewController {
                                     if let forecast = firstWeatherOfDay["description"] as? String {
                                         self.forecastLabel.text = forecast
                                     }
+                                    activityIndicatorView.removeFromSuperview()
                                 }
                             }
                         }
